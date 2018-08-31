@@ -21,6 +21,6 @@
   "scripts": {
     "build": "./node_modules/webpack/bin/webpack.js",
     "watch": "npm run build -- --watch",
-    "publish": "NODE_ENV=production npm run build -- --optimize-minimize"
+    "publish": "NODE_ENV=production npm run build -- "
   }
 }

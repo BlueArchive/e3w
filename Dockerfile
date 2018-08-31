@@ -1,23 +1,7 @@
-FROM golang:1.8 as backend
-RUN mkdir -p /go/src/github.com/bluearchive/e3w
-ADD . /go/src/github.com/bluearchive/e3w
-WORKDIR /go/src/github.com/bluearchive/e3w
-RUN CGO_ENABLED=0 go build
+FROM scratch
+COPY build/e3w /
+COPY static /static
+COPY conf/config.default.ini /conf/config.default.ini
+WORKDIR /
+ENTRYPOINT [ "/e3w" ]
 
-FROM node:8 as frontend
-RUN mkdir /app
-ADD static /app
-WORKDIR /app
-RUN npm --registry=https://registry.npm.taobao.org \
---cache=$HOME/.npm/.cache/cnpm \
---disturl=https://npm.taobao.org/mirrors/node \
---userconfig=$HOME/.cnpmrc install && npm run publish
-
-FROM alpine:latest
-RUN mkdir -p /app/static/dist /app/conf
-COPY --from=backend /go/src/github.com/bluearchive/e3w/e3w /app
-COPY --from=frontend /app/dist /app/static/dist
-COPY conf/config.default.ini /app/conf
-EXPOSE 8080
-WORKDIR /app
-CMD ["./e3w"]

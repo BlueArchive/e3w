@@ -2,7 +2,7 @@ package routers
 
 import (
 	"github.com/gin-gonic/gin"
-	"github.com/soyking/e3ch"
+	"github.com/bluearchive/e3ch"
 )
 
 type Node struct {

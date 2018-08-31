@@ -40,7 +40,7 @@ func main() {
 
 	client, err := e3ch.NewE3chClient(config)
 	if err != nil {
-		panic(err)
+		fmt.Println(err)
 	}
 
 	router := gin.Default()

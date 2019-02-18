@@ -15,8 +15,11 @@ const DeleteButton = React.createClass({
 const CommonPanel = React.createClass({
     render() {
         let bColor = this.props.color ? this.props.color : "#ddd"
+        let position = this.props.fixed == undefined ? "" : "fixed"
+        let top = this.props.fixed == undefined ? "" : "fixed"
+        let left = this.props.fixed == undefined ? "" : "fixed"
         return (
-            <Box start flex style={{ paddingLeft: 20, borderLeft: "1px #E6E6E6 solid" }}>
+            <Box start flex style={{ paddingLeft: 20, borderLeft: "1px #E6E6E6 solid" , position: position }}>
                 <Box vertical style={{ border: "2px solid", borderRadius: 4, width: "100%", borderColor: bColor }}>
                     <div style={{ height: 20, backgroundColor: bColor }}></div>
                     <Box justified center style={{ height: 50, fontSize: 20, fontWeight: 500, borderBottom: "1px solid #ddd", paddingLeft: 10, paddingRight: 10 }}>

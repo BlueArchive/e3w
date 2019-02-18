@@ -148,7 +148,7 @@ const KeyValue = React.createClass({
                     </Box>
 
                     {this.state.setting ?
-                        (<CommonPanel hint={currentKey} color="#cce4f6"><KeyValueSetting currentKey={currentKey} delete={this._delete} /></CommonPanel>) :
+                        (<CommonPanel fixed hint={currentKey} color="#cce4f6"><KeyValueSetting currentKey={currentKey} delete={this._delete} /></CommonPanel>) :
                         (<CommonPanel hint="CREATE"><KeyValueCreate update={this._update} back={this._back} dir={this.state.dir} fullKey={this._fullKey} /></CommonPanel>) }
                 </Box>
             </Box >

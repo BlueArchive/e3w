@@ -1,5 +1,8 @@
 include ../../Makefile.vars
 
+N_ENV=export N_PREFIX="$(HOME)/n" ; export PATH=$(PATH):$(HOME)/n/bin;
+NODE_VERSION=8.11.1
+
 APP=$(BIN_DIR)/e3w
 PAGES=static/dist/bundle.js
 CONTAINER_SRC=Dockerfile $(APP) $(PAGES) Makefile conf/config.default.ini
@@ -13,4 +16,5 @@ $(APP): $(GO_SOURCES) Makefile
 
 $(PAGES): Makefile static/src/* static/package-lock.json static/package.json static/webpack.config.js
 	echo due $?
-	cd static && npm install && npm run publish
+	$(N_ENV) n $(NODE_VERSION)
+	cd static && $(N_ENV) npm install && npm run publish

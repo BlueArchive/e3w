@@ -16,10 +16,10 @@ const CommonPanel = React.createClass({
     render() {
         let bColor = this.props.color ? this.props.color : "#ddd"
         let position = this.props.fixed == undefined ? "" : "fixed"
-        let top = this.props.fixed == undefined ? "" : "fixed"
-        let left = this.props.fixed == undefined ? "" : "fixed"
+        let top = this.props.fixed == undefined ? "" : "160px"
+        let left = this.props.fixed == undefined ? "" : "50%"
         return (
-            <Box start flex style={{ paddingLeft: 20, borderLeft: "1px #E6E6E6 solid" , position: position }}>
+            <Box start flex style={{ paddingLeft: 20, borderLeft: "1px #E6E6E6 solid" , position: position, top: top, left: left, width: "40%" }}>
                 <Box vertical style={{ border: "2px solid", borderRadius: 4, width: "100%", borderColor: bColor }}>
                     <div style={{ height: 20, backgroundColor: bColor }}></div>
                     <Box justified center style={{ height: 50, fontSize: 20, fontWeight: 500, borderBottom: "1px solid #ddd", paddingLeft: 10, paddingRight: 10 }}>
